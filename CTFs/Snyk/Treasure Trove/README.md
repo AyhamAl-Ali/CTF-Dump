@@ -12,9 +12,9 @@
 
 - In somehow (idk if it's intentional) I found a console error in that script `swashbuckle.js` and when I clicked on the error it show me the SOURCE tab! with the deobfuscated code!!!
 
-- ![2022-11-10-23-30-26-image.png](/home/ayham/Github/CTF-Dump/CTFs/Snyk/Treasure%20Trove/2022-11-10-23-30-26-image.png)
+- ![2022-11-10-23-30-26-image.png](2022-11-10-23-30-26-image.png)
   
-  ![2022-11-10-23-30-36-image.png](/home/ayham/Github/CTF-Dump/CTFs/Snyk/Treasure%20Trove/2022-11-10-23-30-36-image.png)
+  ![2022-11-10-23-30-36-image.png](2022-11-10-23-30-36-image.png)
 
 - In this case I didn't even need the obfuscator.js! AMAZING!!
 
