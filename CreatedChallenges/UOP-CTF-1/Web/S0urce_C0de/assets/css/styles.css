@@ -1,0 +1,9 @@
+.split {
+    margin-top: 100px;
+    margin-left: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: baseline;
+    gap: 200px;
+    height: 300px;
+}

@@ -1,0 +1,2 @@
+flag.txt in this folder is not the flag, it's just a hint
+the actual flag is found in '../flag.txt' (here it's named root-flag.txt)
