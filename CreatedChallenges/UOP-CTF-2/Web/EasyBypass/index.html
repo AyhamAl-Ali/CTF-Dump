@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <style>
+        h1,h2,h3,h4,h5,h6,a,p {
+            font-family: 'Press Start 2P', cursive;
+        }
+        pre, code {
+            font-family: 'Sono', sans-serif;
+        }
+    </style>
+    <title>EasyBypass</title>
+</head>
+<body>
+    <div style="margin: 100px auto; text-align: left;">
+        <h3>
+            There are two parts of the flag hidden in 2 pages
+            You just need to bypass these rules
+        </h3>
+
+        <a href="part1/">Page 1</a>
+        <br>
+        <pre>
+            <code>
+                RewriteEngine On
+                RewriteCond %{HTTP_HOST} !^localhost$
+                RewriteRule ".*" "-" [F]
+            </code>
+        </pre>
+        <br>
+        <br>
+        <a href="part2/">Page 2</a>
+        <br>
+        <pre>
+            <code>
+                RewriteEngine On
+                RewriteCond %{THE_REQUEST} flag
+                RewriteRule ".*" "-" [F]
+            </code>
+        </pre>
+    </div>
+</body>
+</html>
