@@ -10,7 +10,7 @@
 > 
 > Chall Link: [Flagyard](https://flagyard.com/labs/training-labs/2/challenges/00c862b7-13cb-4142-8116-3dde550f4daa)
 
-![](/home/ayham/snap/marktext/9/.config/marktext/images/2022-12-01-19-40-48-asset-3.png)
+![](asset-3.png)
 
 ## Solution
 
@@ -20,7 +20,7 @@
 
 - I tried many crafted payloads to understand the exploit well
 
-- ![](/home/ayham/snap/marktext/9/.config/marktext/images/2022-12-01-19-36-44-asset-1.png)  
+- ![](asset-1.png)  
 
 - The exploit was in the note insert code 
 
@@ -36,7 +36,7 @@
 
 - As you can see we have to craft a payload that will insert the flag queried from the other db as a note then it will be printed directly with my notes
 
-- The payload I ended up with is 
+- The payload I ended up with is (note that `limit 1` is not needed)
 
 - ```py
   ' || (select flag from flag limit 1)) --
@@ -44,6 +44,6 @@
 
 - And VOILAAAA!!
 
-- ![](/home/ayham/snap/marktext/9/.config/marktext/images/2022-12-01-19-40-12-asset-2.png)
+- ![](asset-2.png)
 
 - >  Flag: `FlagY{d695ef54fc9bd8ca664193eb485c4721}`
