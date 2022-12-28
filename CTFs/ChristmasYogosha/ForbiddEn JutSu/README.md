@@ -27,8 +27,10 @@ if(isset($_GET["karma"])){
 - I took sometime to understand the code and the methodology
 - The code is ready to use, you just need to provide a known & accessable file path like `/etc/passwd` and a command to send through the PHP Wrappers
 - The code
+
 <details>
 <summary>Reveal Code</summary>
+
 ```py
 import requests
 
@@ -136,7 +138,9 @@ r = requests.get(url, params={
 
 print(r.text.split("<br /></span>\n</span>\n</code>")[1])
 ```
+
 </details>
+
 - I first tried to use `ls` command
 - ![3.png](./assets/3.png)
 - I  got this result
