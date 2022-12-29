@@ -264,9 +264,9 @@ rO0ABXNyAB5jb20ueW9nb3NoYS51dGlscy5NaXNzaW9uRGVidWcEJYLPtI0rFwIAAUwABWRlYnVndAAS
 - ![13.png](./assets/13.png)
 - Executing `ls`
 - ![14.png](./assets/14.png)
-- Executing `ls /ذ
+- Executing `ls /`
 - ![15.png](./assets/15.png)
-- Executing `cat /flag.txtذ
+- Executing `cat /flag.txt`
 - ![16.png](./assets/16.png "16.png")
 - VOILAAAA!!!
 > Flag: `FLAG{J4vA_Des3rialization_1s_Th3_B3sT_U_kNoW?}`
