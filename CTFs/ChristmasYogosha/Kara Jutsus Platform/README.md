@@ -34,3 +34,5 @@
 - ![9.png](./assets/9.png)
 - VOILAAAA!!!
 > Flag: `FLAG{You_StoLe_AmaDO_ForbiDDen_CybOrg_Jutsu}`
+
+After all it seemed to be a known CVE of base-uri ([CVE-2022-40956](https://www.mozilla.org/en-US/security/advisories/mfsa2022-40/#CVE-2022-40956)). Even if base-uri directive is not missing, it can be exploited :) 
