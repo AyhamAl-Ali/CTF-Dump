@@ -18,7 +18,7 @@
 
 - I tried to reduce the `../` to reach various places and look around until I found `src` when requesting `http://file-explorer.c.ctf-snyk.io/public/%2E%2E%2F%2E%2E%2F%2E%2E%2F` got inside then found `groof` then inside you will find `flag`!
 
-- ![2022-11-09-18-08-57-image.png](/home/ayham/Github/CTF-Dump/CTFs/Snyk/File%20Explorer/2022-11-09-18-08-57-image.png)
+- ![2022-11-09-18-08-57-image.png](./2022-11-09-18-08-57-image.png)
 
 - VOILAAAA!
 

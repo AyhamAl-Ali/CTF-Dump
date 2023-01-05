@@ -39,9 +39,9 @@
 - ![7.png](./assets/7.png)
 - Our image path was `./upload/1672270999151187401.jpg` which is `http://54.82.54.16//upload/1672270999151187401.jpg`and type that as a URL your injected image will be downloaded
 - Now we need to add that image source to the home page using the comments section
-- Note that we need to use `charset="ISO-8859-1"` in the img element due to this
+- Note that we need to use `charset="ISO-8859-1"` in the script element due to this
 - > On Firefox when using a UTF-8 character set for the document it corrupts the polyglot when included as an script! So to get the script to work we need to specify the ISO-8859–1 charset on the script tag and it executes fine.
-- Here is out comment
+- Here is our comment
 ```html
 <script charset="ISO-8859-1" src="./upload/1672270999151187401.jpg"></script>
 ```
