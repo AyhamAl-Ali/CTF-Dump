@@ -1,0 +1,1 @@
+The idea was a [### Rock paper scissors](https://en.wikipedia.org/wiki/Rock_paper_scissors) game but the bot can not choose what he chose last round, so the idea to solve it would be to give it a diff answer every round until you reach like 500 rounds won and you'd get the flag, see the solv.py

@@ -1,0 +1,1 @@
+extract hex code, replace all ' 37 ' from hex with ' ' using vscode, save current hex to png
