@@ -24,8 +24,11 @@ Then i stabiliezed my bash a little using `python3 -c "import pty; pty.spawn('/b
 - Sooo, we use do it on the machine's local 
 - ![dd2f718c0a906d060793a2f2826eee7f.png](dd2f718c0a906d060793a2f2826eee7f.png "dd2f718c0a906d060793a2f2826eee7f.png")
 
-Still got no idea why this happened, was it from me? from the machine? I have no idea yet.. it's not the first time I create revshells/RCE using this technique but this time no worky no worky :\
+~~Still got no idea why this happened, was it from me? from the machine? I have no idea yet.. it's not the first time I create revshells/RCE using this technique but this time no worky no worky :\~~
 
-You can contact me using my social media/discord accounts on my Github account if you have any idea why this happened :)
+~~You can contact me using my social media/discord accounts on my Github account if you have any idea why this happened :)~~
+
+# UPDATE
+I've got it!! it was all because of THM VPN – I should've used THM VPN IP not my IP, I tried it today on THM Temple room and it worked!!
 
 Discord: `AyhamAlali#0001`
