@@ -3,9 +3,11 @@
 
 - This one is a bit harder! they have blocked all built-in linux commands `/blocked`so we can't use these in `/backdoor` but!
 - ![47f95716848315b0c7f91be5f1024e18.png](47f95716848315b0c7f91be5f1024e18.png)
+
 <details>
-    <summary>Reveal Code</summary>
+<summary>Reveal Code</summary>
 ```python
+
 from flask import Flask, render_template, request, redirect
 import subprocess
 import os
@@ -59,8 +61,11 @@ def show\_source\_code():
 if \_\_name\_\_ == "\_\_main\_\_":
     port = int(os.environ.get("PORT", 5001))
     app.run(debug=False, host="0.0.0.0", port=port)
+
 ```
+
 </details>
+
 - ![24b0ea9bbab2dbf0ade2386350ca0df8.png](24b0ea9bbab2dbf0ade2386350ca0df8.png)
 - Here is the trick! using **env vars** we can assign env vars to texts/commands we like so we can bypass this 
 - Now we will use `/setenv` but we can also assign 1 var to our full command!

