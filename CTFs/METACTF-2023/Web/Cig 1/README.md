@@ -6,6 +6,7 @@
 
 <details>
 <summary>Reveal Code</summary>
+    
 ```python
 
 from flask import Flask, render_template, request, redirect
@@ -55,7 +56,6 @@ if \_\_name\_\_ == "\_\_main\_\_":
     port = int(os.environ.get("PORT", 5000))
     app.run(debug=False, host="0.0.0.0", port=port)
 ```
-
 </details>
 
 - So now we have to bypass this! let's go!
