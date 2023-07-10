@@ -4,7 +4,7 @@
 - Looks like a simple Flask app! let's dig deeper into it
 - ![9a960d18fed7b56a221498bdd3d0cd26.png](9a960d18fed7b56a221498bdd3d0cd26.png)
 <details>
-    <summary>Reveal Code</summary>
+<summary>Reveal Code</summary>
 ```python
 from flask import Flask, render_template, request, redirect
 import os
@@ -47,6 +47,7 @@ if \_\_name\_\_ == "\_\_main\_\_":
     app.run(debug=False, host="0.0.0.0", port=port)
 ```
 </details>
+
 - By analyzing the code we see `/backdoor` and `/setenv` both are useful to get RCE!
 - in this chall I didn't use `/setenv` as i found and easier way to quickly solve it!
 - Simply type 2 commands in `/backdoor?cmd=CMD`, the first will be finding the flag, second will be using `wget` to send data to my requestcatcher (curl wasn't installed probably as it failed) but you can actually combine it in 1 command!
