@@ -3,9 +3,12 @@
 
 - Looks like a simple Flask app! let's dig deeper into it
 - ![9a960d18fed7b56a221498bdd3d0cd26.png](9a960d18fed7b56a221498bdd3d0cd26.png)
+
 <details>
 <summary>Reveal Code</summary>
+
 ```python
+
 from flask import Flask, render_template, request, redirect
 import os
 
